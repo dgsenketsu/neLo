@@ -306,6 +306,9 @@ figure {
 img {
   vertical-align: middle;
 }
+.img-header {
+   width: 100%;
+}
 .img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
@@ -562,8 +565,10 @@ a.bg-danger:hover {
   background-color: #e4b9b9;
 }
 .page-header {
+  background: url('../images/header.jpg');
+  background-size: cover;
   padding-bottom: 9px;
-  margin: 40px 0 20px;
+  margin: 0 0 20px;
   border-bottom: 1px solid #eeeeee;
 }
 ul,
@@ -733,10 +738,10 @@ pre code {
   overflow-y: scroll;
 }
 .container {
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
 }
 @media (min-width: 768px) {
   .container {
@@ -4363,13 +4368,18 @@ a.list-group-item.active > .badge,
 }
 .jumbotron {
   padding: 30px;
-  margin-bottom: 30px;
+  margin-top: 75px;
+  margin-bottom: 75px;
   color: inherit;
-  background-color: #eeeeee;
+  background-image: url('../images/semi.png');
+  background-size: cover;
+  /*background-color:#ffffff;
+  opacity: 0.6;
+  */
 }
 .jumbotron h1,
 .jumbotron .h1 {
-  color: inherit;
+  /*color: inherit;*/
 }
 .jumbotron p {
   margin-bottom: 15px;
@@ -5462,7 +5472,7 @@ button.close {
   left: 0;
   bottom: 0;
   width: 15%;
-  opacity: 0.5;
+  opacity: 0.8;
   filter: alpha(opacity=50);
   font-size: 20px;
   color: #ffffff;
@@ -5470,18 +5480,22 @@ button.close {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 .carousel-control.left {
+  /*
   background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0%), color-stop(rgba(0, 0, 0, 0.0001) 100%));
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+*/
 }
 .carousel-control.right {
   left: auto;
   right: 0;
+  /*
   background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0%), color-stop(rgba(0, 0, 0, 0.5) 100%));
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+*/
 }
 .carousel-control:hover,
 .carousel-control:focus {
@@ -5524,7 +5538,7 @@ button.close {
 }
 .carousel-indicators {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 50%;
   z-index: 15;
   width: 60%;
@@ -5586,6 +5600,17 @@ button.close {
     bottom: 20px;
   }
 }
+.h2-carousel{
+    margin: 0;     
+
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+.item{   
+    text-align: center;
+    height: 300px !important;
+}
+
 .clearfix:before,
 .clearfix:after,
 .container:before,
