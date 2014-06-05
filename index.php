@@ -36,10 +36,7 @@
             <div class="container">
                 <div class="jumbotron">
                     <?php
-                        $host = 'localhost';
-                        $dbname = 'website';
-                        $user = 'root';
-                        $pass = '';
+                        require('config.php');
                         try {
                             $dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
                         }
