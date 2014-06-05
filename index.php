@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Twitter Bootstrap 3 Responsive Layout Example</title>
+<title>Hotel Durau - The Hotel of your dream !</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/bootswatch.min.css">
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -19,14 +19,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Hotel Amnesia</a>
+                <a class="navbar-brand" href="index.php">Hotel Durau</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#" target="_blank">Home</a></li>
-                    <li><a href="#" target="_blank">About</a></li>
-                    <li><a href="#" target="_blank">Contact</a></li>
+                    <li><a href="reservation.php">Make a Reservation!</a></li>
+                    <li class="active"><a href="index.php">Home</a></li>
+                    <li><a href="features.php">Features</a></li>
+                    <li><a href="offers.php">Offers</a></li>
+                    <li><a href="login.php">Administration</a></li>
                 </ul>
             </div>
         </div>
@@ -73,7 +75,11 @@
                         <p>".$content."</p>";
                         if($link != null)
                         {
-                            echo "<p><a class=\"btn btn-primary btn-lg\" href=\"".$link."\">Learn more</a></p>";
+                            echo "<p><a class=\"btn btn-primary\" href=\"".$link."\">Learn more</a></p>";
+                        }
+                        else
+                        {
+                            echo "<br /><br />";
                         }
                         echo "</div>
                         </div>
@@ -89,7 +95,11 @@
                                 ";
                                 if($rows[$i]['link'] != null)
                                 {
-                                    echo "<p><a class=\"btn btn-primary btn-lg\" href=\"".$rows[$i]['link']."\">Learn more</a></p>";
+                                    echo "<p><a class=\"btn btn-primary\" href=\"".$rows[$i]['link']."\">Learn more</a></p>";
+                                }
+                                else
+                                {
+                                    echo "<br /><br />";
                                 }
                                 echo "</div>
                                 </div>
@@ -104,12 +114,76 @@
                             <span class=\"glyphicon glyphicon-chevron-right\"></span>
                         </a>
                     </div>";
+                    $dbh = null;
                     ?>
                 </div>
             </div>
 	    </div>
     </header>
     <div class="container">
+        <div class="row">
+            <div class="container">
+              <div class="col-xs-6 col-md-3">
+                  <img src="images/location.jpg" class="img-circle" alt="Circular Image">
+              </div>
+              <div class="col-xs-6 col-md-5">
+                  <h2>About Hotel Durau</h2>
+                  <p>Situated in a remote location at the edge of the Ceahlau National Reservation in Durau, Romania, Hotel Durau offers you the best accomodation in the area. Read now about our features that will make you feel like home.</p>
+                  <p><a href="features.php" class="btn btn-success btn-medium">Learn More &raquo;</a></p>
+              </div>
+              <div class="col-xs-6 col-md-4">
+                  <h2>LIVE Accomodation status</h2>
+                  <p>Realtime reservation status over 1 month</p>
+                  <div id="output2"></div>
+                  <div id="output"></div>
+                  <script id="source" type="text/javascript">
+                    $(document).ready(function()
+                    {
+                        var show = myfunct();
+                        var run = setInterval(function(){myfunct()}, 15000);
+                        function myfunct() {
+                            var request = $.ajax({
+                                type: 'POST',
+                                url: 'check.php',
+                                dataType: 'text',
+                            });
+                            request.done(function(data)
+                            {
+                                console.log("mata")
+                                    var rvalue = parseInt(data);
+                                    var max=120;
+                                    var value = Math.round(rvalue/max*100);
+                                    console.log(rvalue + "," + max + "," + value);
+                                    $('#output2').html("<h2>" + value +"% occupied</h2>");
+                                    if(value < 71)
+                                    {
+                                        var text="progress-bar-success";
+                                        var text2 = "<div class=\"progress progress-striped active\"><div class=\"progress-bar "+ text +"\" style=\"width: "+ value +"%;\"></div></div>"
+                                        $('#output').html(text2);
+                                        console.log(text2);
+                                    }
+                                    if(value < 86 && value > 70)
+                                    {
+                                        var text="progress-bar-warning";
+                                        var text2 = "<div class=\"progress progress-striped active\"><div class=\"progress-bar "+ text +"\" style=\"width: "+ value +"%;\"></div></div>"
+                                        $('#output').html(text2);
+                                    }
+                                    if(value > 85)
+                                    {
+                                        var text="progress-bar-danger";
+                                        var text2 = "<div class=\"progress progress-striped active\"><div class=\"progress-bar "+ text +"\" style=\"width: "+ value +"%;\"></div></div>"
+                                        $('#output').html(text2);
+                                    }
+                            });
+                        }
+                    });
+                  </script>
+              </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+        </div>
         <div class="row">
         <hr>
             <div class="col-sm-12">
