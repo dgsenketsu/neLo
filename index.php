@@ -122,7 +122,6 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="container">
               <div class="col-xs-6 col-md-3">
                   <img src="images/location.jpg" class="img-circle" alt="Circular Image">
               </div>
@@ -178,11 +177,79 @@
                         }
                     });
                   </script>
-              </div>
             </div>
         </div>
-        <hr>
         <div class="row">
+        <hr>
+            <div class="col-xs-6 col-md-6">
+                <h2>100% Satisfaction !</h2>
+                <p>We, at Hotel Durau, always place the customer and his needs before anything else and as such offer room service around the clock as well as a non-stop restaurant, a club and of course a pool !</p>
+            </div>
+            <div class="col-xs-6 col-md-6">
+                <blockquote>
+                  <p>Really happy with my tour of Romania, I specially want to mention Hotel Durau as it has one of the friendly staff I have ever met and they indeed offer everything they claim to. I will recommend this place to my friends!</p>
+                  <small>Happy Customer, Joe Miller</small>
+                </blockquote>
+            </div>
+        </div>
+        <div class="row">
+        <hr>
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4 divmid">
+                    <h2>Features of Hotel Durau</h2>
+                    <br />
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset1.png"></img>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset2.png"></img>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset3.png"></img>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset4.png"></img>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset5.png"></img>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset6.png"></img>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset7.png"></img>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset8.png"></img>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset9.png"></img>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/asset10.png"></img>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4 divmid">
+                    <h3>These are only some of the features that awaits in this hotel </h3>
+                    <h2><a class="btn btn-success btn-lg" href="reservation.php">Make your reservation!</a></h2>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
         </div>
         <div class="row">
         <hr>
