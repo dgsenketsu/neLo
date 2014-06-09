@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/bootswatch.min.css">
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/website.js"></script>
 </head>
 <body>
     <nav id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -75,7 +76,7 @@
                         <p>".$content."</p>";
                         if($link != null)
                         {
-                            echo "<p><a class=\"btn btn-primary\" href=\"".$link."\">Learn more</a></p>";
+                            echo "<p><a class=\"btn btn-success\" href=\"".$link."\">Learn more</a></p>";
                         }
                         else
                         {
@@ -95,7 +96,7 @@
                                 ";
                                 if($rows[$i]['link'] != null)
                                 {
-                                    echo "<p><a class=\"btn btn-primary\" href=\"".$rows[$i]['link']."\">Learn more</a></p>";
+                                    echo "<p><a class=\"btn btn-success\" href=\"".$rows[$i]['link']."\">Learn more</a></p>";
                                 }
                                 else
                                 {
@@ -135,48 +136,6 @@
                   <p>Realtime reservation status over 1 month</p>
                   <div id="output2"></div>
                   <div id="output"></div>
-                  <script id="source" type="text/javascript">
-                    $(document).ready(function()
-                    {
-                        var show = myfunct();
-                        var run = setInterval(function(){myfunct()}, 15000);
-                        function myfunct() {
-                            var request = $.ajax({
-                                type: 'POST',
-                                url: 'check.php',
-                                dataType: 'text',
-                            });
-                            request.done(function(data)
-                            {
-                                console.log("mata")
-                                    var rvalue = parseInt(data);
-                                    var max=120;
-                                    var value = Math.round(rvalue/max*100);
-                                    console.log(rvalue + "," + max + "," + value);
-                                    $('#output2').html("<h2>" + value +"% occupied</h2>");
-                                    if(value < 71)
-                                    {
-                                        var text="progress-bar-success";
-                                        var text2 = "<div class=\"progress progress-striped active\"><div class=\"progress-bar "+ text +"\" style=\"width: "+ value +"%;\"></div></div>"
-                                        $('#output').html(text2);
-                                        console.log(text2);
-                                    }
-                                    if(value < 86 && value > 70)
-                                    {
-                                        var text="progress-bar-warning";
-                                        var text2 = "<div class=\"progress progress-striped active\"><div class=\"progress-bar "+ text +"\" style=\"width: "+ value +"%;\"></div></div>"
-                                        $('#output').html(text2);
-                                    }
-                                    if(value > 85)
-                                    {
-                                        var text="progress-bar-danger";
-                                        var text2 = "<div class=\"progress progress-striped active\"><div class=\"progress-bar "+ text +"\" style=\"width: "+ value +"%;\"></div></div>"
-                                        $('#output').html(text2);
-                                    }
-                            });
-                        }
-                    });
-                  </script>
             </div>
         </div>
         <div class="row">
@@ -241,21 +200,78 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-2">
                 </div>
-                <div class="col-md-4 divmid">
+                <div class="col-md-8 divmid">
                     <h3>These are only some of the features that awaits in this hotel </h3>
                     <h2><a class="btn btn-success btn-lg" href="reservation.php">Make your reservation!</a></h2>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                 </div>
             </div>
         </div>
         <div class="row">
+            <hr>
+               <div class="col-xs-6 col-md-3"></div>
+               <div class="col-xs-6 col-md-6 divmid">
+                  <h2 class="h2-title">Contact support</h2>
+                  <p>Have questions? Write us now today and we will get to you as soon as possible!</p>
+                  <div class="alert alert-dismissable alert-info">
+                     Get a response in less than 48 hours!
+                  </div>
+                  <div data-toggle="modal" data-target="#TModal"><p><a class="btn btn-success btn-lg">Write us!</a></p></div>
+                  <div id="TModal" class="modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h2 class="modal-title">Contact Support</h2>
+                          </div>
+                          <div class="modal-body">
+                            <form class="form-horizontal" onsubmit="return makesubmit()">
+                            <div id="modalmessage"></div>
+                              <fieldset>
+                                <div class="form-group">
+                                  <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                                  <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="inputEmail">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
+                                  <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="inputPhone">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="textArea" class="col-lg-2 control-label">Comments</label>
+                                  <div class="col-lg-10">
+                                    <textarea class="form-control" rows="3" id="textArea"></textarea>
+                                    <span class="help-block">Maximum of 500 characters</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </form>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-xs-6 col-md-3 divmid">
+                  <img src="images/support.png" class="img-circle img-add" alt="Circular Image">
+              </div>
+        </div>
+
+        <div class="row">
         <hr>
-            <div class="col-sm-12">
+            <div class="col-sm-12 divmid">
                 <footer>
-                    <p>&copy; Copyright 2014</p>
+                    <p>Copyleft &copy; 2014 Golita Aurelian</p>
                 </footer>
             </div>
         </div>

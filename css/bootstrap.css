@@ -4366,8 +4366,15 @@ a.list-group-item.active > .badge,
 .nav-pills > li > a > .badge {
   margin-left: 3px;
 }
+.h2-title{
+  padding-bottom:15px;
+}
 .divmid {
+  padding-top: 25px;
   text-align: center;
+}
+.img-add{
+  padding-top:30px;
 }
 .jumbotron {
   padding: 30px;
