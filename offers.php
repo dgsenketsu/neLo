@@ -34,20 +34,22 @@
         </div>
     </nav>
     <div class="container">
-        <div class="row">
+        <div class="row divtop">
               <div class="col-xs-6 col-md-3">
-                  <img src="images/location.jpg" class="img-circle" alt="Circular Image">
               </div>
               <div class="col-xs-6 col-md-5">
-                  <h2>About Hotel Durau</h2>
-                  <p>Situated in a remote location at the edge of the Ceahlau National Reservation in Durau, Romania, Hotel Durau offers you the best accomodation in the area. Read now about our features that will make you feel like home.</p>
-                  <p><a href="features.php" class="btn btn-success btn-medium">Learn More &raquo;</a></p>
+                  <?php
+                    require('config.php');
+                    try {
+                            $dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+                        }
+                        catch(PDOException $e) {
+                            echo $e->getMessage();
+                        }
+                    $sth = $dbh->query('SELECT ')
+                  ?>
               </div>
               <div class="col-xs-6 col-md-4">
-                  <h2>LIVE Accomodation status</h2>
-                  <p>Realtime reservation status over 1 month</p>
-                  <div id="output2"></div>
-                  <div id="output"></div>
             </div>
         </div>
         <div class="row">
