@@ -95,47 +95,57 @@
         <hr>
         <div class="col-md-3"></div>
         <div class="col-md-6">
-          <form class="form-horizontal">
+          <form action="submit_reservation.php" class="form-horizontal" method="POST">
             <fieldset>
               <legend><h2 class="divmid">Make a reservation!</h2></legend>
               <!-- Nume -->
               <div class="form-group">
                 <label for="inputNume" class="col-lg-2 control-label">Nume</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="inputNume" required>
+                  <input type="text" class="form-control" id="inputNume" name="inputNume" required>
                 </div>
               </div>
               <!-- Prenume -->
               <div class="form-group">
                 <label for="inputPrenume" class="col-lg-2 control-label">Prenume</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="inputPrenume" required>
+                  <input type="text" class="form-control" id="inputPrenume" name="inputPrenume" required>
                 </div>
               </div>
               <!-- Telefon -->
               <div class="form-group">
                 <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="inputPhone" required>
+                  <input type="text" class="form-control" id="inputPhone" name="inputPhone" required>
                 </div>
               </div>
               <!-- Email -->
               <div class="form-group">
                 <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="inputEmail" required>
+                  <input type="text" class="form-control" id="inputEmail" name="inputEmail" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputDaysNumber" class="col-lg-2 control-label"># of days</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="inputDaysNumber" required>
+                  <input type="text" class="form-control" id="inputDaysNumber" name="inputDaysNumber" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="fromMonth" class="col-lg-2 control-label">Month</label>
+                    <label for="select" class="col-lg-2 control-label">Room</label>
+                    <div class="col-lg-10">
+                      <select class="form-control" id="selectroom" name="selectroom">
+                        <option value="1">Room with 2 beds</option>
+                        <option value="2">Room with 3 beds</option>
+                        <option value="3">Apartment with 2 rooms, 4 beds</option>
+                      </select>
+                     </div>
+                  </div>
+              <div class="form-group">
+                <label for="fromMonth" class="col-lg-2 control-label">Month/Year</label>
                 <div class="col-lg-10">
-                  <input type="month" class="form-control" id="fromMonth" required>
+                  <input type="text" class="form-control" id="fromMonth" name="fromMonth" placeholder="06/2014" required>
                   <span class="help-block mid">
                     <div id="nonumber"></div>
                     <button id="minibtn" type="button" class="btn btn-primary btn-xs">Show</button>
