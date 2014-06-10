@@ -4369,9 +4369,15 @@ a.list-group-item.active > .badge,
 .h2-title{
   padding-bottom:15px;
 }
+.mid {
+  text-align: center;
+}
 .divmid {
   padding-top: 25px;
   text-align: center;
+}
+.divtop {
+  padding-top: 25px;
 }
 .img-add{
   padding-top:30px;

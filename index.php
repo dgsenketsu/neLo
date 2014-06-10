@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/website.js"></script>
+<script type="text/javascript" src="js/promo.js"></script>
 </head>
 <body>
     <nav id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
