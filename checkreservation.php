@@ -87,8 +87,8 @@ for($i=$luna+1;$i<=$luna+$luna2;$i++)
 	$aluna[$i]=$aluna2[$i-$luna];
 }
 
-if($overbook == 0)
-{
+//if($overbook == 0)
+//{
 	$currentday = date('j');
 	for($i=$currentday; $i<=$luna;$i++)
 	{
@@ -114,7 +114,8 @@ if($overbook == 0)
 		    }
 		}
 	}
-}
+//}
+/*
 elseif($overbook == 1)
 {
 	$currentday = date('j');
@@ -136,6 +137,7 @@ elseif($overbook == 1)
 		}
 	}
 }
+*/
 echo $response;
 //$dbh = null;
 ?>
