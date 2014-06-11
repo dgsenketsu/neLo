@@ -64,7 +64,20 @@ else
 	$param2="".$month."/".$year;
 }
 $aux2=2;
-
+//Tratam overbookingul
+$sth = $dbh->prepare("SELECT * FROM reservations WHERE startday=? AND endday=? AND room=?");
+$sth->bindparam(1, $from);
+$sth->bindparam(2, $endday);
+$sth->bindparam(3, $room);
+$sth->execute();
+$row = $sth->fetchAll(PDO::FETCH_ASSOC);
+if(count($row)>0)
+{
+	header("Location: fail.php");
+	return;
+}
+else
+{
 $sth = $dbh->prepare("INSERT INTO reservations (nume, prenume, phone, email, startday, startmonthyear, endday, endmonthyear, room, overbook, expireoverbook) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $sth->bindparam(1, $nume);
 $sth->bindparam(2, $prenume);
@@ -85,5 +98,5 @@ $result=$sth2->execute();
 $dbh=null;
 
 header("Location: index.php");
-
+}
 ?>

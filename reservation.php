@@ -149,7 +149,7 @@
                   <span class="help-block mid">
                     <div id="nonumber"></div>
                     <div class="checkbox">
-                          <label>
+                          <label id="overlabel">
                             <input type="checkbox" id="overbookcheck" name="overbookcheck"> Overbooking - You agree with terms
                           </label>
                     </div>

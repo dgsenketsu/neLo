@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	$("#overbookcheck").hide();
+	$("#overlabel").hide();
 	$("#minibtn").click(function() {
 		if(!($.isNumeric($("#inputDaysNumber").val()) && parseInt($("#inputDaysNumber").val()) > 0 && parseInt($("#inputDaysNumber").val()) < 31))
 		{
