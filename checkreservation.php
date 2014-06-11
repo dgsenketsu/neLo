@@ -4,6 +4,7 @@ $month=intval($_POST['month']);
 $year=intval($_POST['year']);
 $nrDays=intval($_POST['days']);
 $room=intval($_POST['room']);
+$overbook = intval($_POST['overbook']);
 $dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 
 //Luna
@@ -86,32 +87,55 @@ for($i=$luna+1;$i<=$luna+$luna2;$i++)
 	$aluna[$i]=$aluna2[$i-$luna];
 }
 
-$currentday = date('j');
-for($i=$currentday; $i<=$luna;$i++)
+if($overbook == 0)
 {
-	$bool = true;
-	for($j=1; $j<=$nrDays;$j++)
+	$currentday = date('j');
+	for($i=$currentday; $i<=$luna;$i++)
 	{
-		if($aluna[$i+$j]==1)
+		$bool = true;
+		for($j=1; $j<=$nrDays;$j++)
 		{
-			$bool=false;
+			if($aluna[$i+$j]==1)
+			{
+				$bool=false;
+			}
+		}
+		if($bool==true)
+		{
+			if($i==$luna)
+			{
+				$temp="".($i)."/".$month."/".$year;
+				$response=$response."<option value=\"".($i)."\">".$temp."</option>";
+		    }
+		    else
+		    {
+		    	$temp="".($i+1)."/".$month."/".$year;
+			    $response=$response."<option value=\"".($i+1)."\">".$temp."</option>";
+		    }
 		}
 	}
-	if($bool==true)
+}
+elseif($overbook == 1)
+{
+	$currentday = date('j');
+	for($i=$currentday; $i<=$luna;$i++)
 	{
-		if($i==$luna)
+		$bool = true;
+		if($bool==true)
 		{
-			$temp="".($i)."/".$month."/".$year;
-			$response=$response."<option value=\"".($i)."\">".$temp."</option>";
-	    }
-	    else
-	    {
-	    	$temp="".($i+1)."/".$month."/".$year;
-		    $response=$response."<option value=\"".($i+1)."\">".$temp."</option>";
-	    }
+			if($i==$luna)
+			{
+				$temp="".($i)."/".$month."/".$year;
+				$response=$response."<option value=\"".($i)."\">".$temp."</option>";
+		    }
+		    else
+		    {
+		    	$temp="".($i+1)."/".$month."/".$year;
+			    $response=$response."<option value=\"".($i+1)."\">".$temp."</option>";
+		    }
+		}
 	}
 }
-
 echo $response;
 //$dbh = null;
 ?>

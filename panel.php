@@ -87,6 +87,118 @@ if(!isset($_SESSION['user']))
 		    </div>
 		    <div class="col-md-1"></div>
         </div>
+        <div class="row ">
+        	<h2>Booking Manager</h2>
+        	<div class="col-md-1"></div>
+        	<div class="col-md-10 divtop">
+        	  <div class="form-group">
+			      <label for="select" class="col-lg-2 control-label">Manage News</label>
+			      <div class="col-lg-10">
+			        <select class="form-control" id="selectbooking">			          
+			        </select>
+			        <br />
+			      </div>
+			    </div>
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">Nume</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="nume">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">Prenume</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="prenume">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">Phone</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="phone">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">Email</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="email">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">Starting Day</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="startday">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">Starting Month/Year</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="startmonthyear">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">End Day</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="endday">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">End Month/Year</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="endmonthyear">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">Room</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="room">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">Overbook</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="overbook">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+        	<div class="form-group">
+        		<label class="col-lg-2 control-label">ExpireDay Overbook</label>
+        		<div class="col-lg-10">
+		        <input type="text" class="form-control" id="expireoverbook">
+		        <span class="help-block"></span>
+		        </div>
+		    </div>
+
+		    <div class="form-group">
+		      <div class="col-lg-10 col-lg-offset-2">
+		      <br />
+		        <button type="submit" class="btn btn-primary" id="btnBMUpdate">Update</button>
+		        <button type="submit" class="btn btn-primary" id="btnBMDelete">Delete</button>
+		        <button type="submit" class="btn btn-primary" id="btnBMInsert">Insert</button>
+		      </div>
+		    </div>
+		    </div>
+		    <div class="col-md-1"></div>
+        </div>
         <div class="row">
         <hr>
             <div class="col-sm-12 divmid">

@@ -148,6 +148,11 @@
                   <input type="text" class="form-control" id="fromMonth" name="fromMonth" placeholder="06/2014" required>
                   <span class="help-block mid">
                     <div id="nonumber"></div>
+                    <div class="checkbox">
+                          <label>
+                            <input type="checkbox" id="overbookcheck" name="overbookcheck"> Overbooking - You agree with terms
+                          </label>
+                    </div>
                     <button id="minibtn" type="button" class="btn btn-primary btn-xs">Show</button>
                   </span>
                 </div>

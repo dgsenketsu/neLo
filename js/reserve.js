@@ -24,10 +24,18 @@ $(document).ready(function() {
 				return;
 			}
 			$("#nonumber").html("");
+			if($("#overbookcheck:checked").val()!==undefined)
+			{
+				var overbook = 1;
+			}
+			else
+			{
+				var overbook = 0;
+			}
 			var nr_days = parseInt($("#inputDaysNumber").val());
 			var request = $.ajax({
             		type: 'POST',
-            		data: { month :month, year :year, days :nr_days, room :room},
+            		data: { month :month, year :year, days :nr_days, room :room, overbook :overbook},
             		url: 'checkreservation.php',
             		dataType: 'text',
         		});

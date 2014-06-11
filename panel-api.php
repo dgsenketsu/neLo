@@ -1,21 +1,37 @@
 <?php
 $handler = $_POST['funct'];
 
-if(preg_match("(show)",$handler))
+if($handler == "show")
 {
 	show();
 }
-elseif(preg_match("(update)",$handler))
+elseif($handler == "update")
 {
 	update();
 }
-elseif(preg_match("(insert)",$handler))
+elseif($handler == "insert")
 {
 	insert();
 }
-elseif(preg_match("(delete)",$handler))
+elseif($handler == "delete")
 {
 	fdelete();
+}
+elseif($handler == "bm")
+{
+	showbm();
+}
+elseif($handler == "BMupdate")
+{
+	//updatebm();
+}
+elseif($handler == "BMInsert")
+{
+	//insertbm();
+}
+elseif($handler == "BMdelete")
+{
+	fdeleteBM();
 }
 
 function fdelete()
@@ -29,6 +45,27 @@ function fdelete()
 	$dbh=null;
 	echo "done";
 }
+
+function fdeleteBM()
+{
+	$nume=$_POST['nume'];
+	$prenume=$_POST['prenume'];
+	$endday=intval($_POST['endday']);
+	$startday=intval($_POST['startday']);
+    require('config.php');
+	$dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+	$sth = $dbh->prepare("DELETE FROM reservations WHERE nume=? AND prenume=?");
+	$sth->bindparam(1, $nume);
+	$sth->bindparam(2, $prenume);
+	$sth->execute();
+	$sth = $dbh->prepare("UPDATE ocupation SET data=?");
+	$suma=$endday-$startday;
+	$sth->bindparam(1, $suma);
+	$sth->execute();
+	$dbh=null;
+	echo "done";
+}
+
 
 function insert()
 {
@@ -79,6 +116,34 @@ function show()
 			'title' => $rows[$i]['title'],
 			'content' => $rows[$i]['content'],
 			'link' => $rows[$i]['link']
+		);
+	}
+	echo json_encode($array);
+	$dbh = null;
+}
+
+function showbm()
+{
+	require('config.php');
+	$dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+	$sth = $dbh->prepare('SELECT * FROM reservations'); 
+	$sth->execute();                   
+	$rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+	$array["length"] = count($rows);
+	for($i=0;$i<count($rows);$i++)
+	{
+		$array[$i] = array(
+			'nume' => $rows[$i]['nume'],
+			'prenume' => $rows[$i]['prenume'],
+			'phone' => $rows[$i]['phone'],
+			'email' => $rows[$i]['email'],
+			'startday' => $rows[$i]['startday'],
+			'startmonthyear' => $rows[$i]['startmonthyear'],
+			'endday' => $rows[$i]['endday'],
+			'endmonthyear' => $rows[$i]['endmonthyear'],
+			'room' => $rows[$i]['room'],
+			'overbook' => $rows[$i]['overbook'],
+			'expireoverbook' => $rows[$i]['expireoverbook']
 		);
 	}
 	echo json_encode($array);

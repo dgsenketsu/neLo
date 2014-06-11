@@ -10,6 +10,11 @@ $days=$_POST['inputDaysNumber'];
 $room= intval($_POST['selectroom']);
 $from=$_POST['selectdate'];
 $frommonth=$_POST['fromMonth'];
+if (isset($_POST['overbookcheck'])) {
+	$overbook=1;
+} else {
+	$overbook=0;
+}
 $aux=preg_split("(/)", $frommonth);
 $month = intval($aux[0]);
 $year = intval($aux[1]);
@@ -58,8 +63,7 @@ else
 	$endday=$from+$days;
 	$param2="".$month."/".$year;
 }
-$aux1=0;
-$aux2=0;
+$aux2=2;
 
 $sth = $dbh->prepare("INSERT INTO reservations (nume, prenume, phone, email, startday, startmonthyear, endday, endmonthyear, room, overbook, expireoverbook) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $sth->bindparam(1, $nume);
@@ -71,7 +75,7 @@ $sth->bindparam(6, $param);
 $sth->bindparam(7, $endday);
 $sth->bindparam(8, $param2);
 $sth->bindparam(9, $room);
-$sth->bindparam(10, $aux1);
+$sth->bindparam(10, $overbook);
 $sth->bindparam(11, $aux2);
 $result = $sth -> execute(); 
 
