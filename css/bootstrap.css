@@ -4379,6 +4379,9 @@ a.list-group-item.active > .badge,
 .divtop {
   padding-top: 25px;
 }
+.left{
+  padding-left:20px;
+}
 .img-add{
   padding-top:30px;
 }
